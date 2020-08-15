@@ -1,0 +1,473 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L MCU_Module:Arduino_UNO_R3 A1
+U 1 1 5F376CFC
+P 2100 4550
+F 0 "A1" H 2550 3450 50  0000 C CNN
+F 1 "Arduino_UNO_R3" H 2550 3350 50  0000 C CNN
+F 2 "Module:Arduino_UNO_R3" H 2100 4550 50  0001 C CIN
+F 3 "https://www.arduino.cc/en/Main/arduinoBoardUno" H 2100 4550 50  0001 C CNN
+	1    2100 4550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Ventilator-Splitter:ABPDJJ U3
+U 1 1 5F37E909
+P 9550 4000
+F 0 "U3" H 9550 4665 50  0000 C CNN
+F 1 "ABPDJJ" H 9550 4574 50  0000 C CNN
+F 2 "" H 9550 4000 50  0001 C CNN
+F 3 "https://www.mouser.com/datasheet/2/187/honeywell-sensing-basic-board-mount-pressure-abp-s-1662208.pdf" H 9550 4000 50  0001 C CNN
+	1    9550 4000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0101
+U 1 1 5F37F58C
+P 2350 3450
+F 0 "#PWR0101" H 2350 3300 50  0001 C CNN
+F 1 "+5V" H 2365 3623 50  0000 C CNN
+F 2 "" H 2350 3450 50  0001 C CNN
+F 3 "" H 2350 3450 50  0001 C CNN
+	1    2350 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR0102
+U 1 1 5F37F367
+P 2150 3450
+F 0 "#PWR0102" H 2150 3300 50  0001 C CNN
+F 1 "+3V3" H 2165 3623 50  0000 C CNN
+F 2 "" H 2150 3450 50  0001 C CNN
+F 3 "" H 2150 3450 50  0001 C CNN
+	1    2150 3450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2150 3450 2200 3450
+Wire Wire Line
+	2200 3450 2200 3550
+Wire Wire Line
+	2350 3450 2300 3450
+Wire Wire Line
+	2300 3450 2300 3550
+Wire Wire Line
+	2000 5650 2100 5650
+Connection ~ 2100 5650
+Wire Wire Line
+	2100 5650 2200 5650
+Wire Wire Line
+	2100 5650 2100 5700
+Wire Wire Line
+	1600 5150 1300 5150
+Wire Wire Line
+	1300 5050 1600 5050
+Wire Wire Line
+	1600 5250 1300 5250
+Wire Wire Line
+	1600 4950 1300 4950
+Text Label 1300 4950 0    50   ~ 0
+SS
+Text Label 1300 5050 0    50   ~ 0
+MOSI
+Text Label 1300 5150 0    50   ~ 0
+MISO
+Text Label 1300 5250 0    50   ~ 0
+SCK
+$Comp
+L Motor:Motor_Servo M2
+U 1 1 5F37AABD
+P 5700 5450
+F 0 "M2" H 6032 5515 50  0000 L CNN
+F 1 "Motor_Servo" H 6032 5424 50  0000 L CNN
+F 2 "" H 5700 5260 50  0001 C CNN
+F 3 "http://forums.parallax.com/uploads/attachments/46831/74481.png" H 5700 5260 50  0001 C CNN
+	1    5700 5450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Ventilator-Splitter:SM5420E U2
+U 1 1 5F37CEB5
+P 5700 6400
+F 0 "U2" H 5700 7115 50  0000 C CNN
+F 1 "SM5420E" H 5700 7024 50  0000 C CNN
+F 2 "" H 5700 6400 50  0001 C CNN
+F 3 "https://www.mouser.com/datasheet/2/589/SM5420E_40ds5468.02_1-1100662.pdf" H 5700 6400 50  0001 C CNN
+	1    5700 6400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0103
+U 1 1 5F39BF93
+P 5350 5250
+F 0 "#PWR0103" H 5350 5100 50  0001 C CNN
+F 1 "+5V" H 5365 5423 50  0000 C CNN
+F 2 "" H 5350 5250 50  0001 C CNN
+F 3 "" H 5350 5250 50  0001 C CNN
+	1    5350 5250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0104
+U 1 1 5F39C836
+P 5350 5600
+F 0 "#PWR0104" H 5350 5350 50  0001 C CNN
+F 1 "GND" H 5355 5427 50  0000 C CNN
+F 2 "" H 5350 5600 50  0001 C CNN
+F 3 "" H 5350 5600 50  0001 C CNN
+	1    5350 5600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5350 5550 5350 5600
+Wire Wire Line
+	5400 5550 5350 5550
+Wire Wire Line
+	5400 5450 5350 5450
+Wire Wire Line
+	5350 5450 5350 5250
+Wire Wire Line
+	5400 5350 5150 5350
+$Comp
+L power:GND #PWR0105
+U 1 1 5F380739
+P 2100 5750
+F 0 "#PWR0105" H 2100 5500 50  0001 C CNN
+F 1 "GND" H 2105 5577 50  0000 C CNN
+F 2 "" H 2100 5750 50  0001 C CNN
+F 3 "" H 2100 5750 50  0001 C CNN
+	1    2100 5750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0106
+U 1 1 5F3A152D
+P 5300 6300
+F 0 "#PWR0106" H 5300 6050 50  0001 C CNN
+F 1 "GND" H 5305 6127 50  0000 C CNN
+F 2 "" H 5300 6300 50  0001 C CNN
+F 3 "" H 5300 6300 50  0001 C CNN
+	1    5300 6300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6050 5950 6100 5950
+Wire Wire Line
+	6100 5950 6100 5900
+Wire Wire Line
+	5350 6250 5300 6250
+Wire Wire Line
+	5300 6250 5300 6300
+Wire Wire Line
+	5350 6050 5150 6050
+Wire Wire Line
+	6050 6150 6250 6150
+$Comp
+L Motor:Motor_Servo M1
+U 1 1 5F3A5562
+P 5800 2450
+F 0 "M1" H 6132 2515 50  0000 L CNN
+F 1 "Motor_Servo" H 6132 2424 50  0000 L CNN
+F 2 "" H 5800 2260 50  0001 C CNN
+F 3 "http://forums.parallax.com/uploads/attachments/46831/74481.png" H 5800 2260 50  0001 C CNN
+	1    5800 2450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Ventilator-Splitter:SM5420E U1
+U 1 1 5F3A5568
+P 5800 3400
+F 0 "U1" H 5800 4115 50  0000 C CNN
+F 1 "SM5420E" H 5800 4024 50  0000 C CNN
+F 2 "" H 5800 3400 50  0001 C CNN
+F 3 "https://www.mouser.com/datasheet/2/589/SM5420E_40ds5468.02_1-1100662.pdf" H 5800 3400 50  0001 C CNN
+	1    5800 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0107
+U 1 1 5F3A556E
+P 5450 2250
+F 0 "#PWR0107" H 5450 2100 50  0001 C CNN
+F 1 "+5V" H 5465 2423 50  0000 C CNN
+F 2 "" H 5450 2250 50  0001 C CNN
+F 3 "" H 5450 2250 50  0001 C CNN
+	1    5450 2250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0108
+U 1 1 5F3A5574
+P 5450 2600
+F 0 "#PWR0108" H 5450 2350 50  0001 C CNN
+F 1 "GND" H 5455 2427 50  0000 C CNN
+F 2 "" H 5450 2600 50  0001 C CNN
+F 3 "" H 5450 2600 50  0001 C CNN
+	1    5450 2600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5450 2550 5450 2600
+Wire Wire Line
+	5500 2550 5450 2550
+Wire Wire Line
+	5500 2450 5450 2450
+Wire Wire Line
+	5450 2450 5450 2250
+Wire Wire Line
+	5500 2350 5250 2350
+$Comp
+L power:GND #PWR0109
+U 1 1 5F3A557F
+P 5400 3300
+F 0 "#PWR0109" H 5400 3050 50  0001 C CNN
+F 1 "GND" H 5405 3127 50  0000 C CNN
+F 2 "" H 5400 3300 50  0001 C CNN
+F 3 "" H 5400 3300 50  0001 C CNN
+	1    5400 3300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6150 2950 6200 2950
+Wire Wire Line
+	6200 2950 6200 2900
+Wire Wire Line
+	5450 3250 5400 3250
+Wire Wire Line
+	5400 3250 5400 3300
+Wire Wire Line
+	5450 3050 5250 3050
+Wire Wire Line
+	6150 3150 6350 3150
+Wire Wire Line
+	9100 3700 9000 3700
+Wire Wire Line
+	9000 3700 9000 3500
+Wire Wire Line
+	8850 3600 9100 3600
+Wire Wire Line
+	8850 3800 9100 3800
+Wire Wire Line
+	10000 3600 10250 3600
+Wire Wire Line
+	10000 3700 10250 3700
+NoConn ~ 10000 3800
+Wire Wire Line
+	8850 4200 8800 4200
+Wire Wire Line
+	8800 4200 8800 4150
+Wire Wire Line
+	8850 4900 8800 4900
+Wire Wire Line
+	8800 4900 8800 4950
+Wire Wire Line
+	8850 4700 8550 4700
+Wire Wire Line
+	8850 4600 8550 4600
+Wire Wire Line
+	8850 4500 8550 4500
+$Comp
+L power:+3V3 #PWR0110
+U 1 1 5F3B1092
+P 9000 3500
+F 0 "#PWR0110" H 9000 3350 50  0001 C CNN
+F 1 "+3V3" H 9015 3673 50  0000 C CNN
+F 2 "" H 9000 3500 50  0001 C CNN
+F 3 "" H 9000 3500 50  0001 C CNN
+	1    9000 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0111
+U 1 1 5F3B1864
+P 8800 4950
+F 0 "#PWR0111" H 8800 4700 50  0001 C CNN
+F 1 "GND" H 8805 4777 50  0000 C CNN
+F 2 "" H 8800 4950 50  0001 C CNN
+F 3 "" H 8800 4950 50  0001 C CNN
+	1    8800 4950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0112
+U 1 1 5F3B1F52
+P 8850 3600
+F 0 "#PWR0112" H 8850 3350 50  0001 C CNN
+F 1 "GND" V 8855 3472 50  0000 R CNN
+F 2 "" H 8850 3600 50  0001 C CNN
+F 3 "" H 8850 3600 50  0001 C CNN
+	1    8850 3600
+	0    1    1    0   
+$EndComp
+Text Label 10250 3600 2    50   ~ 0
+SCK
+Text Label 8850 3800 0    50   ~ 0
+SS
+Text Label 10250 3700 2    50   ~ 0
+MISO
+Text Label 8550 4700 0    50   ~ 0
+SCK
+Text Label 8550 4600 0    50   ~ 0
+MOSI
+$Comp
+L Ventilator-Splitter:ST7735 DS1
+U 1 1 5F3B52DB
+P 9600 4100
+F 0 "DS1" H 10178 3696 50  0000 L CNN
+F 1 "ST7735" H 10178 3605 50  0000 L CNN
+F 2 "" H 9600 4100 50  0001 C CNN
+F 3 "" H 9600 4100 50  0001 C CNN
+	1    9600 4100
+	1    0    0    -1  
+$EndComp
+Text Label 8550 4500 0    50   ~ 0
+SS
+Wire Wire Line
+	8550 4400 8850 4400
+Wire Wire Line
+	8550 4300 8850 4300
+Wire Wire Line
+	8850 4800 8800 4800
+Wire Wire Line
+	8800 4800 8800 4200
+Connection ~ 8800 4200
+$Comp
+L power:+3V3 #PWR0113
+U 1 1 5F3BAC72
+P 8800 4150
+F 0 "#PWR0113" H 8800 4000 50  0001 C CNN
+F 1 "+3V3" H 8815 4323 50  0000 C CNN
+F 2 "" H 8800 4150 50  0001 C CNN
+F 3 "" H 8800 4150 50  0001 C CNN
+	1    8800 4150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1600 4850 1300 4850
+Text Label 1300 4850 0    50   ~ 0
+D9
+Text Label 8550 4300 0    50   ~ 0
+D9
+Text Label 8550 4400 0    50   ~ 0
+D8
+Text Label 1300 4750 0    50   ~ 0
+D8
+Wire Wire Line
+	1600 4750 1300 4750
+$Comp
+L power:+5V #PWR0114
+U 1 1 5F3BD7C2
+P 6200 2900
+F 0 "#PWR0114" H 6200 2750 50  0001 C CNN
+F 1 "+5V" H 6215 3073 50  0000 C CNN
+F 2 "" H 6200 2900 50  0001 C CNN
+F 3 "" H 6200 2900 50  0001 C CNN
+	1    6200 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0115
+U 1 1 5F3BDF48
+P 6100 5900
+F 0 "#PWR0115" H 6100 5750 50  0001 C CNN
+F 1 "+5V" H 6115 6073 50  0000 C CNN
+F 2 "" H 6100 5900 50  0001 C CNN
+F 3 "" H 6100 5900 50  0001 C CNN
+	1    6100 5900
+	1    0    0    -1  
+$EndComp
+NoConn ~ 2000 3550
+NoConn ~ 2600 3950
+NoConn ~ 2600 4150
+NoConn ~ 2600 4350
+NoConn ~ 1600 3950
+NoConn ~ 1600 4050
+NoConn ~ 2600 4950
+NoConn ~ 2600 5050
+NoConn ~ 2600 5250
+NoConn ~ 2600 5350
+Wire Wire Line
+	2600 4550 2850 4550
+Wire Wire Line
+	2600 4650 2850 4650
+Wire Wire Line
+	2600 4750 2850 4750
+Wire Wire Line
+	2600 4850 2850 4850
+Text Label 2850 4550 2    50   ~ 0
+A0
+Text Label 2850 4650 2    50   ~ 0
+A1
+Text Label 2850 4750 2    50   ~ 0
+A2
+Text Label 2850 4850 2    50   ~ 0
+A3
+Text Label 5250 3050 0    50   ~ 0
+A0
+Text Label 6350 3150 2    50   ~ 0
+A1
+Text Label 5150 6050 0    50   ~ 0
+A2
+Text Label 6250 6150 2    50   ~ 0
+A3
+Wire Wire Line
+	1600 4650 1300 4650
+Wire Wire Line
+	1600 4550 1300 4550
+Text Label 1300 4650 0    50   ~ 0
+D7
+Text Label 1300 4550 0    50   ~ 0
+D6
+Text Label 5150 5350 0    50   ~ 0
+D7
+Text Label 5250 2350 0    50   ~ 0
+D6
+NoConn ~ 1600 4150
+NoConn ~ 1600 4250
+NoConn ~ 1600 4350
+NoConn ~ 1600 4450
+$Comp
+L power:PWR_FLAG #FLG0101
+U 1 1 5F3D589B
+P 2100 5700
+F 0 "#FLG0101" H 2100 5775 50  0001 C CNN
+F 1 "PWR_FLAG" V 2100 5827 50  0000 L CNN
+F 2 "" H 2100 5700 50  0001 C CNN
+F 3 "~" H 2100 5700 50  0001 C CNN
+	1    2100 5700
+	0    -1   -1   0   
+$EndComp
+Connection ~ 2100 5700
+Wire Wire Line
+	2100 5700 2100 5750
+Text Notes 1900 2800 0    100  ~ 20
+Arduino\n
+Wire Notes Line
+	3950 1200 3950 7700
+Wire Notes Line
+	3950 4200 7600 4200
+Wire Notes Line
+	7600 1200 7600 6300
+Text Notes 1850 950  0    200  ~ 40
+Circuit Schematic of One Half of the Ventilator Splitter
+Text Notes 5400 1650 0    100  ~ 20
+PIP Valve
+Text Notes 5300 4700 0    100  ~ 20
+PEEP Valve
+Text Notes 9150 2850 0    100  ~ 20
+Spirometer
+$EndSCHEMATC
