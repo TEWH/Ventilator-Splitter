@@ -24,11 +24,11 @@ X Pin_4 4 -200 -200 150 R 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Sij_Sensors_SM5420E
+# PressureSensor-rescue_SM5420E-Sij_Sensors
 #
-DEF Sij_Sensors_SM5420E U 0 40 Y Y 1 F N
+DEF PressureSensor-rescue_SM5420E-Sij_Sensors U 0 40 Y Y 1 F N
 F0 "U" 0 100 50 H V C CNN
-F1 "Sij_Sensors_SM5420E" 0 0 50 H V C CNN
+F1 "PressureSensor-rescue_SM5420E-Sij_Sensors" 0 0 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
