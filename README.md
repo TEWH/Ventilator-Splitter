@@ -33,20 +33,20 @@ Texas Engineering World Health (TEWH) at UT Austin is an organization that is de
 Enforcement Document [PDF](https://www.fda.gov/media/136318/download)
 
 # **Materials**
-Arduino Uno: the microcontroller (two needed - one for each patient)
-Differential Pressure Sensor: for measuring pressure difference in spirometer to calculate volume flow for each patient 
-Servo Motor: for electronic control of pressure gradient (attached to ball valve with 3D-printed connector)
-Absolute Pressure Sensor PCB + 2.54mm Headers: for measuring the pressure values (PIP/PEEP) for each patient 
-LCD Display: To display pressure readings and tidal volume readings as well as any alarm system alerts
-Filter: Needed to prevent any contamination between patients and to filter air before feeding to patient
-PVC/Tubing: Used as the main path for air flow to and from ventilator
-Aquarium Tubing:used to connect the differential pressure sensor to the tubing
-T-Tube connectors: Needed to split the air flow between patients
-PVC Ball Valve: Used to control PIP/PEEP pressure values
-1-way check valve: Used to prevent contamination of air between patients and to prevent backflow
-Button/Switch: To power on/off the device
-Bellows: Used to simulate the lungs
-Alarm System: To alert doctor if any pressure values or tidal volume is out of range for certain period of time
+- Arduino Uno: the microcontroller (two needed - one for each patient)
+- Differential Pressure Sensor: for measuring pressure difference in spirometer to calculate volume flow for each patient 
+- Servo Motor: for electronic control of pressure gradient (attached to ball valve with 3D-printed connector)
+- Absolute Pressure Sensor PCB + 2.54mm Headers: for measuring the pressure values (PIP/PEEP) for each patient 
+- LCD Display: To display pressure readings and tidal volume readings as well as any alarm system alerts
+- Filter: Needed to prevent any contamination between patients and to filter air before feeding to patient
+- PVC/Tubing: Used as the main path for air flow to and from ventilator
+- Aquarium Tubing:used to connect the differential pressure sensor to the tubing
+- T-Tube connectors: Needed to split the air flow between patients
+- PVC Ball Valve: Used to control PIP/PEEP pressure values
+- 1-way check valve: Used to prevent contamination of air between patients and to prevent backflow
+- Button/Switch: To power on/off the device
+- Bellows: Used to simulate the lungs
+- Alarm System: To alert doctor if any pressure values or tidal volume is out of range for certain period of time
 
 ## **Bill of Materials**
 [Updated 8/19/20](https://docs.google.com/spreadsheets/d/1XwOlux3Xf7fFyf_rW_SfKY8QT29Pvu9iuFFEjWML3TM/edit?usp=sharing)
