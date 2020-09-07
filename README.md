@@ -195,4 +195,4 @@ If the pressure is within the range, the Alarm System continues to loop. However
 
 Additionally, if the Alarm System is triggered, it will display what pressure measurement triggered the Alarm System on the LCD, and it will notify the user and send this message to the app as well.
 
-For the circuit schematic of the Alarm System, see [Circuit Design](#circuit design), and for the details on the software, see [Overall Design](#overall design). 
+For the circuit schematic of the Alarm System, see [Circuit Design](#circuit-design), and for the details on the software, see [Overall Design](#overall-design). 
