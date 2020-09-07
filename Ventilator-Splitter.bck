@@ -10,4 +10,9 @@ D Board Mount Absolute Pressure Sensors
 F https://www.mouser.com/datasheet/2/589/SM5420E_40ds5468.02_1-1100662.pdf
 $ENDCMP
 #
+$CMP ST7735
+D ST7735 Display
+K TFT, display
+$ENDCMP
+#
 #End Doc Library

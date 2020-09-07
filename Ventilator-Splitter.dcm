@@ -5,6 +5,10 @@ D Board Mount Pressure Sensors 1.04bar (15psi), Diff, DIP, Dual ports
 F https://www.mouser.com/datasheet/2/187/honeywell-sensing-basic-board-mount-pressure-abp-s-1662208.pdf
 $ENDCMP
 #
+$CMP HC-05
+D Bluetooth Module
+$ENDCMP
+#
 $CMP SM5420E
 D Board Mount Absolute Pressure Sensors
 F https://www.mouser.com/datasheet/2/589/SM5420E_40ds5468.02_1-1100662.pdf
