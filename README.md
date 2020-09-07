@@ -29,8 +29,8 @@ We are not medical professionals - our design was guided by consultation with bi
 Texas Engineering World Health (TEWH) at UT Austin is an organization that is dedicated to making low-cost medical devices and solutions for the developing world. Due to the exhaustion of hospital-grade ventilators and need for emergency solutions due to COVID-19, we decided to design a low-cost ventilator system that allows for multi-patient use (currently: 2 users) in which pressure-controlled ventilation is independently and electronically regulated for each patient. After looking into the [existing solutions](https://docs.google.com/document/d/1PsjM1vYI0WkMa8VHJeYqwy_0DvrdOo4uPSwuuTEJjoY/edit?usp=sharing), our idea was ultimately inspired from [Cornell](https://www.ventilatorsforall.com/about) and [Yale](https://www.medrxiv.org/content/10.1101/2020.04.03.20052217v1)’s ventilator splitter systems. For further details on our brainstorming/design process, see [this link](https://github.com/TEWH/Ventilator-Splitter/tree/master/Brainstorming)
 
 # **Government Policies for Ventilators during COVID-19**
-[FDA Enforcement Policy](https://www.fda.gov/medical-devices/coronavirus-covid-19-and-medical-devices/ventilators-and-ventilator-accessories-covid-19) 
-Enforcement Document [PDF](https://www.fda.gov/media/136318/download)
+- [FDA Enforcement Policy](https://www.fda.gov/medical-devices/coronavirus-covid-19-and-medical-devices/ventilators-and-ventilator-accessories-covid-19)
+- Enforcement Document [PDF](https://www.fda.gov/media/136318/download)
 
 # **Materials**
 - Arduino Uno: the microcontroller (two needed - one for each patient)
