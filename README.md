@@ -3,24 +3,24 @@ Last updated: 9/7/20
 NOTE: This is an independent project that is not affiliated with any commercial institution.
 
 # **Table of Contents**
--[Disclaimers](#disclaimers)
--[Background + Why it’s needed](#background + why it’s needed)
--[Government Policies for Ventilators during COVID-19](#government policies for ventilators during covid-19)
--[Materials](#materials)
--[Bill of Materials](#bill of materials)
--[Overall Design](#overall design)
-	-[Circuit Design](#circuit design)
-	-[Sensors](#sensors)
--[Electronically-Regulated Valves](#electronically-regulated valves)
--[Software Design (Valve Control)](#software design (valve control))
--[App Design](#app design)
--[Low-cost Spirometer](#low-cost spirometer)
-	-[Spirometer Tube](#spirometer tube)
-	-[Circuit](#circuit)
-	-[Code](#code)
--[Alarm System](#alarm system)
--[Limitations/Future Considerations](#limitations/future considerations)
--[References](#references)
+- [Disclaimers](#disclaimers)
+- [Background + Why it’s needed](#background-+-why-it’s-needed)
+- [Government Policies for Ventilators during COVID-19](#government-policies-for-ventilators-during-covid-19)
+- [Materials](#materials)
+- [Bill of Materials](#bill-of-materials)
+- [Overall Design](#overall-design)
+	- [Circuit Design](#circuit-design)
+	- [Sensors](#sensors)
+- [Electronically-Regulated Valves](#electronically-regulated-valves)
+- [Software Design (Valve Control)](#software-design-(valve-control))
+- [App Design](#app-design)
+- [Low-cost Spirometer](#low-cost-spirometer)
+	- [Spirometer Tube](#spirometer-tube)
+	- [Circuit](#circuit)
+	- [Code](#code)
+- [Alarm System](#alarm-system)
+- [Limitations/Future Considerations](#limitations/future-considerations)
+- [References](#references)
 
 # **Disclaimers**
 We are not medical professionals - our design was guided by consultation with biomedical engineering professors from UT Austin and online resources (see References). This should not be used as an equal alternative to a hospital-grade device or reason to delay care from professional health providers. We have created this project for use as an educational resource and platform for commercial organizations to build off of. 
@@ -59,7 +59,7 @@ We used a servo motor to regulate affordable valves, and a pressure sensor and a
 
 ![Ventilator Schematic](https://github.com/TEWH/Ventilator-Splitter/blob/master/Images/Ventilator%20Schematic.PNG)
 
-Put in CAD Designs here  - Annie
+Put in CAD Designs here 
 
 In this CAD representation, the box represents the ventilator, and one of the pipes coming out is the outflow of air from the ventilator, while the other is the inflow of air. There are t-tubes to separate the flow of air out of the ventilator and into the ventilator from each patient. In addition, there are ball valves acting as the PIP/PEEP valves for each patient, all connected to their own servo motor. There are also absolute pressure sensors (represented by the rectangles on the pipes). These pressure readings are repeatedly sampled and checked to verify that they are at the appropriate threshold. The Arduinos (not pictured in this CAD file) would be connected to the servos as well as the pressure sensors, so that if the pressure is not at the desired level, the servo would turn the ball valve the appropriate amount to adjust. At the end of the pipes, there is the spirometer, represented by the vertical cylinder. This has a differential pressure sensor which would be connected to the Arduino for the respective patient. Both the spirometer and the PIP/PEEP valves would be connected to the alarm system (consisting of a buzzer and an LCD screen) as well as the bluetooth module which connects to the app. There are also one way check valves that are incorporated to prevent contamination between patients, and it is also where filters would be added in the actual design.
 
@@ -95,7 +95,7 @@ The bluetooth module used to communicate with the app is connected to the serial
 
 ## **Sensors**
 
-### *Absolute Pressure Sensor* - Hannah
+### *Absolute Pressure Sensor* 
 The absolute pressure sensors are used in the PIP and PEEP valves to measure the pressure during inhalation and exhalation respectively. Due to its low cost and small size, the [SM5420E series board mount sensors](https://www.mouser.com/datasheet/2/589/SM5420E_40ds5468.02_1-1100662.pdf) from Silicon Microstructures, Inc. (Manufacturing Number: 5420E-030-A-P-S) were chosen. The typical ranges of PIP and PEEP is well within the operating pressure of the sensor (30 PSI). However, since the pressure sensor is intended to be a surface mount component, a PCB was created to make it functional within this design. 
 
 The PCB can be found within this Github repository. Its design consists of the footprint for the sensor and 2.54mm headers to connect the sensor to the Arduino Uno. 
