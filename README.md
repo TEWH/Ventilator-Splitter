@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Last updated: 9/7/20
 
 NOTE: This is an independent project that is not affiliated with any commercial institution.
@@ -196,3 +197,9 @@ If the pressure is within the range, the Alarm System continues to loop. However
 Additionally, if the Alarm System is triggered, it will display what pressure measurement triggered the Alarm System on the LCD, and it will notify the user and send this message to the app as well.
 
 For the circuit schematic of the Alarm System, see [Circuit Design](#circuit design), and for the details on the software, see [Overall Design](#overall design). 
+=======
+# Ventilator-Splitter
+Texas Engineering World Health (TEWH) at UT Austin is an organization that prides itself in making low-cost medical devices and solutions for the developing world. In response to the COVID-19 pandemic, we decided to design a low cost ventilator system that allows for multi-patient use. We used a motor to regulate affordable valves, and a pressure sensor and spirometer to give feedback to the valves of each patient to maintain the appropriate pressure ventilation settings.
+
+
+>>>>>>> 0eb729679fa35d2ca8628f6bbddb437d4bd22ac1
