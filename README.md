@@ -168,7 +168,7 @@ Pin 5 → MISO (Master In Slave Out) -  Pin 12
 Pin 6 → SCLK (Serial Clock) - Pin 13
 
 ![Pinout for Pressure Sensor](https://github.com/TEWH/Ventilator-Splitter/blob/master/Images/PinOuts.PNG)
-*Pinout for Pressure Sensor (our selected sensor uses SPI)*
+*Pinouts for Pressure Sensor (our selected sensor uses SPI)*
 
 ## *Code*
 An important point to note is that the output type of the pressure sensor (e.g. analog vs. SPI) will affect the syntax of the code. As our sensor uses Serial Peripheral Interface (SPI) communication, our code has been written accordingly. 
@@ -190,12 +190,12 @@ Once these have been identified, the SPI settings can be configured using this c
  
 Note: the following code outputs its values to the Serial Monitor, but can be modified to display its output to an LCD screen: 
 
-'''cpp
+```cpp
 #include <SPI.h>
-'''
+```
 This imports the SPI library needed to communicate with the pressure sensors
 
-'''cpp
+```cpp
  float pressure_psi; // Pressure value calculated from voltage, in psi
  float pressure_pa; // Pressure converted to Pa
  float massFlow; // Mass flow rate calculated from pressure
@@ -225,9 +225,9 @@ void setup() {
     
   SPI.beginTransaction(SPISettings(800000, MSBFIRST, SPI_MODE0)); 
 }
-''' 
+``` 
 Now that the appropriate constants and SPI settings have been configured, the following code details how to convert a voltage signal into an air volume: 
-'''cpp
+```cpp
 void loop() {
   
   delay(1000);
@@ -271,7 +271,7 @@ void loop() {
   delay(1);
   
   Serial.print("Volume = "); Serial.println(volume);
-''' 
+```
 # **Alarm System** 
 The Alarm System makes use of a piezo-buzzer, a pushbutton switch, and the LCD. While the Ventilator Splitter is in use, the Alarm System regularly checks the differential and absolute pressure sensor data in order to check whether the pressure is outside of the acceptable input range. 
 
