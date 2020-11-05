@@ -20,7 +20,7 @@ NOTE: This is an independent project that is not affiliated with any commercial 
 	- [Code](#code)
 - [Alarm System](#alarm-system)
 - [Limitations/Future Considerations](#limitations/future-considerations)
-- [References](#references)
+ 
 
 # **Disclaimers**
 We are not medical professionals - our design was guided by consultation with biomedical engineering professors from UT Austin and online resources (see References). This should not be used as an equal alternative to a hospital-grade device or reason to delay care from professional health providers. We have created this project for use as an educational resource and platform for commercial organizations to build off of. 
@@ -144,11 +144,11 @@ The spirometer is typically used for assessing respiration and diagnosing pulmon
 ## *Spirometer Tube*
 Plastic pipes (e.g. PVC) are recommended for constructing the spirometer “tube”, but due to lack of available resources, cardboard tubes were used instead. 
 Two pipes with a significant diameter difference are needed. The smaller diameter tube will be placed inside the larger diameter tube to create the needed pressure drop across the section where the diameters change. 
-Measure the diameters of the two pipes - these values will later be used to calculate the pressure drop
-Cut two pieces of aquarium tubing (~1 ft) long
-Drill or cut a small hole that is roughly the diameter of the aquarium tubing on each side of the diameter change. 
-Insert the aquarium tubing. The aquarium tubing will be used to connect the differential pressure sensor to both sides of the diameter change region. With foam or cotton (or another appropriate material), plug the empty space in between the two pipes
-Once the aquarium tubing is properly inserted and positioned, tighten the seals using hot glue. 
+- Measure the diameters of the two pipes - these values will later be used to calculate the pressure drop
+- Cut two pieces of aquarium tubing (~1 ft) long
+- Drill or cut a small hole that is roughly the diameter of the aquarium tubing on each side of the diameter change. 
+- Insert each aquarium tubing piece into a cut hole. The aquarium tubing will be used to connect the differential pressure sensor to both sides of the diameter change region. -- - With foam or cotton (or another appropriate material), plug the empty space in between the two pipes
+- Once the aquarium tubing is properly inserted and positioned, tighten the seals using hot glue. 
 
 ## *Circuit*
 Aside from the LCD screen and Arduino microcontroller, the pressure sensor is the only other major circuit component. We used a differential Honeywell Board Mount Pressure Sensor (ABPDRRV015PDSA3 - datasheet found [here](https://www.mouser.com/datasheet/2/187/honeywell-sensing-basic-board-mount-pressure-abp-s-1662208.pdf)).
@@ -174,20 +174,104 @@ Pin 6 → SCLK (Serial Clock) - Pin 13
 An important point to note is that the output type of the pressure sensor (e.g. analog vs. SPI) will affect the syntax of the code. As our sensor uses Serial Peripheral Interface (SPI) communication, our code has been written accordingly. 
 
 A brief overview of SPI (more details [here](https://www.arduino.cc/en/reference/SPI)): it is used by microcontrollers for quickly communicating with peripheral devices over short distances. With SPI, a master device (e.g. an Arduino) controls peripheral devices (e.g. pressure sensor) typically using these lines: 
-SCK (Serial Clock): sends clock pulses, synchronize data transmission
-MISO (Master In, Slave Out): peripheral device sends data to master
-MOSI (Master Out, Slave In): master sends data to peripheral devices 
+- SCK (Serial Clock): sends clock pulses, synchronize data transmission
+- MISO (Master In, Slave Out): peripheral device sends data to master
+- MOSI (Master Out, Slave In): master sends data to peripheral devices 
 There is also a line used to control a peripheral device
-SS (Slave Select) pin: activates or disables a specific device
+- SS (Slave Select) pin: activates or disables a specific device
 
 For any new SPI circuit device, refer to its datasheet to make note of the following:
-Maximum SPI speed (e.g. 15 MHz)
-Is the data shifted in either Most Significant Bit or Least Significant Bit  
-Clock polarity (clock) and clock phase (is data sampled on either the rising or falling edge of clock pulses)
+- Maximum SPI speed (e.g. 15 MHz)
+- Is the data shifted in either Most Significant Bit or Least Significant Bit  
+- Clock polarity (clock) and clock phase (is data sampled on either the rising or falling edge of clock pulses)
 
 Once these have been identified, the SPI settings can be configured using this command: SPI.beginTransaction(SPISettings(800000, MSBFIRST, SPI_MODE0));
 
+ 
+Note: the following code outputs its values to the Serial Monitor, but can be modified to display its output to an LCD screen: 
 
+'''cpp
+#include <SPI.h>
+'''
+This imports the SPI library needed to communicate with the pressure sensors
+
+'''cpp
+ float pressure_psi; // Pressure value calculated from voltage, in psi
+ float pressure_pa; // Pressure converted to Pa
+ float massFlow; // Mass flow rate calculated from pressure
+ float volFlow; // Calculated from mass flow rate
+ float volume; // Integral of flow rate over time
+
+ //Constants
+ float rho = 1.225; // Density of air in kg/m3
+ float area_1 = 0.004536; // C.S.A. of larger tube in m2 
+ float area_2 = 0.001257; // C.S.A. of smaller tubein m2
+ float dt;
+
+void setup() {
+  
+  Serial.begin(9600);
+  pinMode(10,OUTPUT);
+  
+  // start the SPI library:
+  SPI.begin();
+  
+  /*Honeywell digital output pressure sensors are configured for
+  operation such that data on the MISO line will transition during
+  the falling edge of clock pulses. This means that the data on
+  MISO should be sampled by the master device during the
+  rising edge of the clock pulse.
+  */
+    
+  SPI.beginTransaction(SPISettings(800000, MSBFIRST, SPI_MODE0)); 
+}
+''' 
+Now that the appropriate constants and SPI settings have been configured, the following code details how to convert a voltage signal into an air volume: 
+'''cpp
+void loop() {
+  
+  delay(1000);
+  //Activate Slave Select line
+  digitalWrite(SS, LOW);
+  //Read Sensor
+  int inByte_1 = SPI.transfer(0x00);  // Read first Byte of Pressure
+  int inByte_2 = SPI.transfer(0x00);  // Read second Byte of Pressure
+  //Disconnect Slave
+  digitalWrite(SS, HIGH);
+  SPI.endTransaction();
+  
+  //Print Pressure Readings in Counts
+  Serial.print("Byte_1 = "); Serial.print(inByte_1, DEC); Serial.print(" ");
+  Serial.print("Byte_2 = "); Serial.print(inByte_2, DEC); Serial.println(" ");
+
+  //Combine both pressure reading bytes 
+  int pressure = inByte_1 << 8 | inByte_2; // Note: the pressure output for this specific sensor is 12 bits
+  Serial.println(pressure);
+
+  //Convert pressure in bytes to float
+  float convert = float(pressure);  
+  
+
+  //Calculate pressure in psi
+  pressure_psi =  (((30)*(convert - 1638) / 13107) - 15); // +/- 15 psi is the pressure range
+  Serial.print("Pressure = "); Serial.println(pressure_psi);
+  
+  // Convert pressure to Pa
+  float pressure_pa = pressure_psi*6894.75729; 
+  
+  // Mass flow of air (kg/s)
+  massFlow = 1000*sqrt((abs(pressure_pa)*2*rho)/((1/(pow(area_2,2)))-(1/(pow(area_1,2))))); 
+  
+  // Volumetric flow of air
+  volFlow = massFlow/rho; 
+  
+  // Total volume (essentially integrated over time)
+  volume = volFlow*dt + volume; 
+  dt = 0.001;
+  delay(1);
+  
+  Serial.print("Volume = "); Serial.println(volume);
+''' 
 # **Alarm System** 
 The Alarm System makes use of a piezo-buzzer, a pushbutton switch, and the LCD. While the Ventilator Splitter is in use, the Alarm System regularly checks the differential and absolute pressure sensor data in order to check whether the pressure is outside of the acceptable input range. 
 
@@ -196,3 +280,7 @@ If the pressure is within the range, the Alarm System continues to loop. However
 Additionally, if the Alarm System is triggered, it will display what pressure measurement triggered the Alarm System on the LCD, and it will notify the user and send this message to the app as well.
 
 For the circuit schematic of the Alarm System, see [Circuit Design](#circuit-design), and for the details on the software, see [Overall Design](#overall-design). 
+
+# **Limitations & Future Considerations**
+One of the greatest limitations for this project was the barriers to testing. All of the components were prototyped remotely, and with public health regulations in mind, we are currently unable to run testing. Our system needs to be compared against medical-grade equipment to validate the accuracy of tidal volume measurements and ventilator pressure profile, and so this project's documentation is meant to serve as a proof-of-concept. 
+In addition to robust testing, the processing speed of our system could be greatly improved by creating a real-time operating system that allows multiple threads to run in parallel and customized prioritization of tasks. 
