@@ -19,7 +19,7 @@ NOTE: This is an independent project that is not affiliated with any commercial 
 	- [Circuit](#circuit)
 	- [Code](#code)
 - [Alarm System](#alarm-system)
-- [Limitations/Future Considerations](#limitations/future-considerations)
+- [Limitations & Future Considerations](#limitations/future-considerations)
  
 
 # **Disclaimers**
