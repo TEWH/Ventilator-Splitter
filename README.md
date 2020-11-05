@@ -155,9 +155,11 @@ Aside from the LCD screen and Arduino microcontroller, the pressure sensor is th
 Differential pressure sensors measure pressure differences and convert them into voltages. These voltages are sent to an Arduino microcontroller, which calculates the pressure drop and tidal volume and sends it for display on the LCD screen. The sensor itself has two ports where pressures can be applied. Below is the transfer function that can be arranged to calculate the pressure difference based on the sensor’s output voltage. 
 
 ![Transfer Function for Digital Sensor](https://github.com/TEWH/Ventilator-Splitter/blob/master/Images/Transfer%20Function.PNG)
+
 *Transfer Function for Digital Sensor: Takes pressure difference and converts into an output voltage*
 
 ![Pin Layout for Pressure Sensor](https://github.com/TEWH/Ventilator-Splitter/blob/master/Images/Sensor%20Pins.PNG)
+
 *Pin Layout for Pressure Sensor (First diagram is the top view)*
 
 Pin configuration (Pressure Sensor → Arduino Uno) - See below images for more detail: 
@@ -168,6 +170,7 @@ Pin 5 → MISO (Master In Slave Out) -  Pin 12
 Pin 6 → SCLK (Serial Clock) - Pin 13
 
 ![Pinout for Pressure Sensor](https://github.com/TEWH/Ventilator-Splitter/blob/master/Images/PinOuts.PNG)
+
 *Pinouts for Pressure Sensor (our selected sensor uses SPI)*
 
 ## *Code*
